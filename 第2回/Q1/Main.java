@@ -7,10 +7,10 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line = br.readLine();
         String reverseLine = "";
-    	for(int i = line.length(); i > 0; i--) {
-    		reverseLine += line.substring(i - 1, i);
-    	}
-    	System.out.println(reverseLine);
+        for(int i = line.length(); i > 0; i--) {
+            reverseLine += line.substring(i - 1, i);
+        }
+        System.out.println(reverseLine);
         br.close();
     }
 }

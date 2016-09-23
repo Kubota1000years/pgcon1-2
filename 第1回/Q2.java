@@ -10,12 +10,14 @@ public class Q2 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String line = "";
+    	char[] ox = new char[9];
         for(int i = 0; i < 3; i++) {
-            line += br.readLine();
+            line = br.readLine();
+        	char[i*3] = line.substring(0, 1);
+        	char[i*3+1] = line.substring(1, 2);
+        	char[i*3+2] = line.substring(2, 3);
         }
         br.close();
-        
-        String[] ox = line.split("");
 
         if(isLineCompleted(ox, "o")) {
             System.out.println("WIN");
@@ -25,7 +27,7 @@ public class Q2 {
             return;
         }
 
-        if(decideFin(ox)) {
+        if(isFinish(ox)) {
             System.out.println("FIN");
             return;
         }
@@ -62,7 +64,7 @@ public class Q2 {
         return (o > x) ? "x" : "o";
     }
 
-    static boolean decideFin(String[] ox) {
+    static boolean isFinish(String[] ox) {
         int bar = 0;
         for(int i = 0; i < 9; i++) {
             if(ox[i].equals("-")) bar++;

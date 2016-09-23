@@ -43,12 +43,13 @@ public class Q1 {
         //出力する巻をソート
         Collections.sort(outputBookList);
 
-        String outputBook = "";
         if(outputBookList.size() != 0) {
+            StringBuilder sb = new StringBuilder();
             for(int i = 0; i < outputBookList.size(); i++) {
-                outputBook += outputBookList.get(i);
-                if(i != outputBookList.size() - 1) outputBook += " ";
+                sb.append(outputBookList.get(i));
+                if(i != outputBookList.size() - 1) sb.append(" ");
             }
+            System.out.println(new String(sb));
         } else {
             System.out.println("None");
         }
