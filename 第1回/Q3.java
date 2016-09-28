@@ -14,15 +14,15 @@ public class Q3 {
         double NoTaxItem1 = 0, NoTaxItem2 = 0; //商品の税抜価格
         double maxTaxedValue = 0; //新消費税率での最大税込合計価格
 
-        for(int i = 0; i < s / 2 + 1; i++) {
+        for(int i = 1; i <= s / 2 + 1; i++) {
             xTaxedItem1 = (double)i;
             xTaxedItem2 = (double)s - (double)i;
 
-            NoTaxItem1 = Math.ceil(xTaxedItem1 / ((double)1 + x / (double)100));
-            NoTaxItem2 = Math.ceil(xTaxedItem2 / ((double)1 + x / (double)100));
+            NoTaxItem1 = Math.ceil(xTaxedItem1 / (1d + x / 100d));
+            NoTaxItem2 = Math.ceil(xTaxedItem2 / (1d + x / 100d));
 
-            yTaxedItem1 = Math.floor(NoTaxItem1 * ((double)1 + y / (double)100));
-            yTaxedItem2 = Math.floor(NoTaxItem2 * ((double)1 + y / (double)100));
+            yTaxedItem1 = Math.floor(NoTaxItem1 * (1d + y / 100d));
+            yTaxedItem2 = Math.floor(NoTaxItem2 * (1d + y / 100d));
 
             if(maxTaxedValue < (yTaxedItem1 + yTaxedItem2)) {
                 maxTaxedValue = yTaxedItem1 + yTaxedItem2;

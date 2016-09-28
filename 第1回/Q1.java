@@ -49,7 +49,7 @@ public class Q1 {
                 sb.append(outputBookList.get(i));
                 if(i != outputBookList.size() - 1) sb.append(" ");
             }
-            System.out.println(new String(sb));
+            System.out.println(sb.toString());
         } else {
             System.out.println("None");
         }
