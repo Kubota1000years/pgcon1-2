@@ -1,4 +1,4 @@
-﻿import java.io.BufferedReader;
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
@@ -6,11 +6,11 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line = br.readLine();
-        String reverseLine = "";
+        StringBuilder sb = new StringBuilder();
         for(int i = line.length(); i > 0; i--) {
-            reverseLine += line.substring(i - 1, i);
+            sb.append(line.substring(i - 1, i));
         }
-        System.out.println(reverseLine);
+        System.out.println(sb.toString());
         br.close();
     }
 }

@@ -37,7 +37,8 @@ public class Main {
                 rgbList.remove(0);
             } else if(right.equals(rgb)) {
                 rgbList.remove(rgbList.size() - 1);
-            } else if(i == rgbList.size() - 1)  {
+            } else if(i == line.length() - 1)  {
+                rgbList.add(rgb);
                 continue;
             } else {
                 afterRgb = line.substring(i + 1, i + 2);
