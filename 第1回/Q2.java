@@ -8,10 +8,9 @@ public class Q2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String line = "";
         char[] ox = new char[9];
         for(int i = 0; i < 3; i++) {
-            line = br.readLine();
+            String line = br.readLine();
             ox[i * 3] = line.charAt(0);
             ox[i * 3 + 1] = line.charAt(1);
             ox[i * 3 + 2] = line.charAt(2);
