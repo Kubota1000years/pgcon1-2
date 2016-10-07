@@ -13,7 +13,7 @@ public class Main {
         String left = "";
         String right = "";
         String afterRgb = "";
-        
+
         for(int i = 0; i < line.length(); i++) {
             rgb = line.substring(i, i + 1);
             if(rgbList.size() == 0) {
@@ -23,7 +23,7 @@ public class Main {
 
             left = rgbList.get(0);
             right = rgbList.get(rgbList.size() - 1);
-            
+
             if(rgbList.size() == 1) {
                 if(rgb.equals(rgbList.get(0))) {
                     rgbList.remove(rgbList.size() - 1);
@@ -51,9 +51,7 @@ public class Main {
                 }
             }
         }
-        
+
         System.out.println(rgbList.size());
-        
-        br.close();
     }
 }

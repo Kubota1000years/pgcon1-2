@@ -13,12 +13,12 @@ public class Main {
         int[] club  = new int[card.length];
         int[] heart = new int[card.length];
         int s = 0, d = 0, c = 0, h = 0;
-        
+
         for(int i = 0; i < card.length; i++) {
             String mark   = card[i].substring(0, 1);
             String number = card[i].substring(1, 2);
             int convertNumber = 0;
-            
+
             if(number.equals("A")) {
                 convertNumber = 1;
             } else if(number.equals("0")) {
@@ -47,13 +47,11 @@ public class Main {
         printCardNumber(dia, d, "D");
         printCardNumber(club, c, "C");
         printCardNumber(heart, h, "H");
-        
-        br.close();
     }
-    
+
     static void printCardNumber(int[] markArray, int markCount, String mark) {
         if(markCount == 0) return;
-        
+
         int number = 0;
         String outputNumber = "";
         System.out.print(mark + ":");

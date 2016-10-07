@@ -8,13 +8,14 @@ public class Q2 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String line = "", lineValue = "";
+        String line = "";
+        char[] ox = new char[9];
         for(int i = 0; i < 3; i++) {
             line = br.readLine();
-            lineValue += line;
+            ox[i * 3] = line.charAt(0);
+            ox[i * 3 + 1] = line.charAt(1);
+            ox[i * 3 + 2] = line.charAt(2);
         }
-        char[] ox = lineValue.toCharArray();
-        br.close();
 
         if(isLineCompleted(ox, 'o')) {
             System.out.println("WIN");
@@ -28,9 +29,9 @@ public class Q2 {
             System.out.println("FIN");
             return;
         }
-        
+
         char turnPlayer = decidePlayerTurn(ox);
-        
+
         if(turnPlayer == 'x') {
             System.out.println("NG");
             return;
@@ -48,7 +49,7 @@ public class Q2 {
         }
         System.out.println("NO");
 
-        
+
     }
 
     static char decidePlayerTurn(char[] ox) {
@@ -71,13 +72,17 @@ public class Q2 {
     }
 
     static boolean isLineCompleted(char[] ox, char turnPlayer) {
-        return((ox[0] == turnPlayer && ox[3] == turnPlayer && ox[6] == turnPlayer) || //縦一列
-                (ox[1] == turnPlayer && ox[4] == turnPlayer && ox[7] == turnPlayer) ||
-                (ox[2] == turnPlayer && ox[5] == turnPlayer && ox[8] == turnPlayer) ||
-                (ox[0] == turnPlayer && ox[1] == turnPlayer && ox[2] == turnPlayer) || //横一列
-                (ox[3] == turnPlayer && ox[4] == turnPlayer && ox[5] == turnPlayer) ||
-                (ox[6] == turnPlayer && ox[7] == turnPlayer && ox[8] == turnPlayer) ||
-                (ox[0] == turnPlayer && ox[4] == turnPlayer && ox[8] == turnPlayer) || //斜め一列
-                (ox[2] == turnPlayer && ox[4] == turnPlayer && ox[6] == turnPlayer));
+        int[][] idx = {{0, 3, 6}, {1, 4, 7}, {2, 5, 8},
+                       {0, 1, 2}, {3, 4, 5}, {6, 7, 8},
+                       {0, 4, 8}, {2, 4, 6}};
+
+        for(int i = 0; i < 8; i++) {
+            boolean isComplete = true;
+            for(int j = 0; j < 3; j++) {
+                isComplete &= (ox[idx[i][j]] == turnPlayer);
+            }
+            if (isComplete) return true;
+        }
+        return false;
     }
 }

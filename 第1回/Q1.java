@@ -18,8 +18,6 @@ public class Q1 {
 
         line = br.readLine();
         String[] soldBookList = line.split(" "); //売られている巻のリスト
-        
-        br.close();
 
         boolean[] hasBookList = new boolean[bookCount]; //持っている巻はTrue
 
@@ -30,7 +28,7 @@ public class Q1 {
         }
 
         ArrayList<Integer> outputBookList = new ArrayList<Integer>(); //出力する巻のリスト
-        
+
         //持っていなくて売られている巻をリスト化
         for(int i = 0; i < soldBookList.length; i++) {
             int soldBook = Integer.parseInt(soldBookList[i]);

@@ -2,6 +2,8 @@
 import java.io.InputStreamReader;
 import java.io.IOException;
 
+//未完成です
+
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,14 +15,14 @@ public class Main {
         String[] escape_sequence = new String[N];
         String[][] screen = new String[25][80];
         screen = command1_clear(screen);
-        
+
         for(int i = 0; i < N; i++) {
             line = br.readLine();
             escIndex = 0;
             while((escIndex = line.indexOf("<ESC>", escIndex)) != -1) {
                 nextIndex = line.indexOf("<ESC>", escIndex + 1);
                 if(nextIndex == -1) break;
-                
+
                 command = line.substring(escIndex + 5, nextIndex);
                 if(command.startsWith("[2J")) {
                     command1_clear(screen);
@@ -43,17 +45,17 @@ public class Main {
                 nextIndex++;
             }
         }
-        
+
         for(int i = 0; i < 25; i++) {
             for(int j = 0; j < 80; j++) {
                 System.out.print(screen[i][j]);
             }
             System.out.println();
         }
-        
+
         br.close();
     }
-    
+
     static String[][] command1_clear(String[][] screen) {
         for(int i = 0; i < 25; i++) {
             for(int j = 0; j < 80; j++) {
@@ -62,7 +64,7 @@ public class Main {
         }
         return screen;
     }
-    
+
     static int command2_moveHCursor(String command) {
         int hCursol = 0;
         try {
@@ -72,7 +74,7 @@ public class Main {
         }
         return hCursol;
     }
-    
+
     static int command2_moveWCursor(String command) {
         int wCursol = 0;
         try {
@@ -83,7 +85,7 @@ public class Main {
         }
         return wCursol;
     }
-    
+
     static String[][] command2_printValue(String[][] screen, int hCursol, int wCursol,
         int escIndex, int nextIndex, String command) {
         String value = "";
@@ -95,18 +97,18 @@ public class Main {
         }
         return screen;
     }
-    
+
     static int command3_moveDown(String command, int hCursol) {
         int moveNum = Integer.parseInt(command.substring(1, 2));
         return hCursol + moveNum;
     }
-    
+
     static int command4_moveLeft(String command, int wCursol) {
         int moveNum = Integer.parseInt(command.substring(1, 2));
         return wCursol + moveNum;
     }
 
-    
+
     static int command5_moveUp(String command, int hCursol) {
         int moveNum = Integer.parseInt(command.substring(1, 2));
         return hCursol - moveNum;

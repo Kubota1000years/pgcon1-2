@@ -30,7 +30,5 @@ public class Q3 {
         }
 
         System.out.println((int)maxTaxedValue);
-
-        scan.close();
     }
 }
