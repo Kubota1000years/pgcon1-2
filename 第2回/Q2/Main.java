@@ -67,7 +67,7 @@ public class Main {
             if(i == markList.size() - 1) {
                 System.out.println(convertNumber);
             } else {
-                System.out.print(convertNumber + ',');
+                System.out.print(convertNumber + ",");
             }
         }
     }
