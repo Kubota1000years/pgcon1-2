@@ -20,12 +20,12 @@ public class Main {
                 continue;
             }
 
-            left = rgbList.get(0);
-            right = rgbList.get(rgbList.size() - 1);
+            left = rgbList.getFirst();
+            right = rgbList.getLast();
 
             if(rgbList.size() == 1) {
                 if(rgb == rgbList.get(0)) {
-                    rgbList.remove(0);
+                    rgbList.removeFirst();
                 } else {
                     rgbList.addLast(rgb);
                 }
@@ -33,9 +33,9 @@ public class Main {
             }
 
             if(left == rgb) {
-                rgbList.remove(0);
+                rgbList.removeFirst();
             } else if(right == rgb) {
-                rgbList.remove(rgbList.size() - 1);
+                rgbList.removeLast();
             } else if(i == line.length() - 1)  {
                 rgbList.addLast(rgb);
                 continue;
