@@ -24,7 +24,7 @@ public class Main {
             right = rgbList.getLast();
 
             if(rgbList.size() == 1) {
-                if(rgb == rgbList.get(0)) {
+                if(left == rgb) {
                     rgbList.removeFirst();
                 } else {
                     rgbList.addLast(rgb);
